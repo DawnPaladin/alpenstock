@@ -10,9 +10,6 @@ const Sticky = props => {
 		backgroundColor: color,
 		height: size,
 		maxWidth: size,
-		boxShadow: "5px 5px 5px gray",
-		padding: 10,
-		fontSize: 24
 	}}>
 		<header>
 			<strong>{boldHeader} </strong>
