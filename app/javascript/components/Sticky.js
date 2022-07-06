@@ -9,7 +9,7 @@ const Sticky = props => {
 	return <div className='sticky' style={{
 		backgroundColor: color,
 		height: size,
-		maxWidth: size,
+		width: size,
 	}}>
 		<header>
 			<strong>{boldHeader} </strong>
