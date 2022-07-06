@@ -8,6 +8,9 @@ html, body {
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 	padding: 10px;
 	font-size: 24px;
+	header {
+		margin-bottom: 5%;
+	}
 }
 
 .week-drawer {
@@ -49,3 +52,25 @@ html, body {
 		font-size: 18px;
 	}
 }
+
+.task {
+	display: block;
+}
+.checkbox {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background: #fff;
+	border: 2px #ddd solid;
+	margin-right: 4px;
+}
+input[type="checkbox"] {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+  
