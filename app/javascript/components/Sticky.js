@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 import Task from './Task';
 
@@ -9,12 +10,11 @@ const Sticky = props => {
 	const [mediumHeader, setMediumHeader] = useState(props.mediumHeader);
 	const [tasks, setTasks] = useState(props.tasks || []);
 
-	var taskComponents = tasks.map((task, index) => <Task isCompleted={task.isCompleted} text={task.text} key={index} />);
+	const shouldTruncate = size == 'small';
+	const taskComponents = tasks.map((task, index) => <Task isCompleted={task.isCompleted} text={task.text} shouldTruncate={shouldTruncate} key={index} />);
 
-	return <div className='sticky' style={{
+	return <div className={classNames('sticky', size)} style={{
 		backgroundColor: color,
-		height: size,
-		width: size,
 	}}>
 		<header>
 			<strong>{boldHeader} </strong>

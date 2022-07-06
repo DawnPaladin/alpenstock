@@ -9,10 +9,12 @@ import {
   useSpringRef,
   useChain
 } from "react-spring";
+import classNames from "classnames";
 
-function Checkbox(props) {
+function Task(props) {
   const [isCompleted, setIsCompleted] = useState(props.isCompleted);
-  const [text, setText] = useState(props.text)
+  const [text, setText] = useState(props.text);
+  const [shouldTruncate, setShouldTruncate] = useState(props.shouldTruncate);
   const checkboxAnimationRef = useSpringRef();
   const checkboxAnimationStyle = useSpring({
     backgroundColor: isCompleted ? "#808" : "#fff",
@@ -38,9 +40,10 @@ function Checkbox(props) {
   );
 
   return (
-    <label className="task">
+    <label className={classNames('task', { truncate: shouldTruncate })}>
       <input
         type="checkbox"
+		defaultChecked={isCompleted}
         onChange={() => {
           setIsCompleted(!isCompleted);
         }}
@@ -67,9 +70,11 @@ function Checkbox(props) {
           strokeDashoffset={checkmarkAnimationStyle.x}
         />
       </animated.svg>
-      {text}
+	  <span className={classNames('taskText', {truncate: shouldTruncate})}>
+		{text}
+	  </span>
     </label>
   );
 }
 
-export default Checkbox;
+export default Task;

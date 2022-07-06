@@ -7,22 +7,67 @@ html, body {
 .sticky {
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 	padding: 10px;
-	font-size: 24px;
 	header {
 		margin-bottom: 5%;
 	}
+	&.small {
+		width: 150px;
+		height: 150px;
+		font-size: 16px;
+	}
+	&.large {
+		width: 250px;
+		min-height: 250px;
+		font-size: 22px;
+		.task {
+			margin-bottom: .5em;
+		}
+	}
+}
+
+.task {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: .4em;
+}
+.checkbox {
+	display: inline-block;
+	height: .75em;
+	width: .75em;
+	flex-shrink: 0;
+	background: #fff;
+	border: .1em #ddd solid;
+	margin-right: 4px;
+}
+input[type="checkbox"] {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+.taskText {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+.truncate { // from https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .week-drawer {
 	position: relative;
 	background-image: url("/images/cork.jpeg");
-	padding-bottom: 40px;
+	padding: 10px 0 40px;
 	.stickies {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-evenly;
 		gap: 10px;
-
+		font-size: 16px;
 		header {
 			font-size: 16px;
 		}
@@ -39,6 +84,7 @@ html, body {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	font-size: 18px;
 }
 
 .task-lists-pane {
@@ -52,25 +98,3 @@ html, body {
 		font-size: 18px;
 	}
 }
-
-.task {
-	display: block;
-}
-.checkbox {
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	background: #fff;
-	border: 2px #ddd solid;
-	margin-right: 4px;
-}
-input[type="checkbox"] {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-}
-  
